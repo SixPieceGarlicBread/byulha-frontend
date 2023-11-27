@@ -107,7 +107,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 }
 */
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -119,9 +118,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  int _currentPage = 0;
-  final PageController _pageController = PageController();
-  final List<String> categories = [
+  final List<String> notes = [
     'Woody',
     'Sweet',
     'Fruity',
@@ -135,36 +132,37 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Note'),
+        title: const Text('TABA'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.view_headline),
-            onPressed: () {
-              // View all notes
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // 카테고리 영역 (수평 스크롤 가능)
-            Container(
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: const Text(
+                'Select Category',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
+                itemCount: notes.length,
                 itemBuilder: (context, index) {
-                  return _buildCategoryItem(categories[index]);
+                  return _buildNoteCircle(notes[index]);
                 },
               ),
             ),
-            // 검색 영역
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: TextField(
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(
+                      vertical: 10.0), // Reduce vertical padding
                   prefixIcon: Icon(Icons.search),
                   hintText: 'Search',
                   border: OutlineInputBorder(
@@ -174,22 +172,40 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
             ),
-            // 여기에 'Hot Sales' 및 'Best Seller' 구현 코드 추가...
+            _buildRecommendationButton('이미지로 향수추천'),
+            _buildRecommendationButton('분류별로 향수추천'),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildCategoryItem(String title) {
+  Widget _buildNoteCircle(String note) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Chip(
-        label: Text(title),
+      padding: const EdgeInsets.all(8.0),
+      child: CircleAvatar(
+        radius: 40,
+        child: Text(note),
         backgroundColor: Colors.grey[200],
       ),
     );
   }
 
-  // 여기에 'Hot Sales' 및 'Best Seller' 관련 위젯 함수 추가...
+  Widget _buildRecommendationButton(String title) {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: Colors.blue,
+          padding:
+              EdgeInsets.symmetric(vertical: 24), // Provide vertical padding
+        ),
+        child: Text(title, style: TextStyle(fontSize: 20)),
+        onPressed: () {
+          // 추천 로직 수행
+        },
+      ),
+    );
+  }
 }
