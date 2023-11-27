@@ -119,13 +119,20 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   final List<String> notes = [
-    'Woody',
+    'Citrus',
     'Sweet',
     'Fruity',
     'Coconut',
-    'Tropical',
-    'Warm Spicy',
-    'Cacao'
+    'Floral',
+    'Spicy',
+    'Woody',
+    'Musk',
+    'Leather',
+    'Oriental',
+    'Green',
+    'Aquatic',
+    'Aromatic',
+    'Powdery',
   ];
 
   @override
@@ -197,7 +204,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.blue,
+          primary: Colors.purple,
           padding:
               EdgeInsets.symmetric(vertical: 24), // Provide vertical padding
         ),
