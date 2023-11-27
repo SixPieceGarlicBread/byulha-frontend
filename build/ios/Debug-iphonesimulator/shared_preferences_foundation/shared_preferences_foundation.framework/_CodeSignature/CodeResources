@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		p4Ngr/bPilMpYUfNFYx/3qb5jm4=
+		yOg5j6Bl8Z5DFzTurGu6wmsgr5M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -22,11 +22,11 @@
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		95fkkulXO3QW7kXmW9WKNcct6rs=
+		XJRi4ylLz2W1ykyqogzN5U8hzG8=
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		eoOMrUTDJur5/+Pt5+XmlbZ/1H4=
+		hoOZMB0FB/s5XHcP0C5dGshA1bE=
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		27iEAEQJevpVLhI5hwFsb8zLeIs=
+		Oe0P8WL8VyXiQvrLsluT8HN+QZs=
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/shared_preferences_foundation.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DSJW7/MpyxLLVTPU2eGCiX2xnTE=
+		oexK+suH2jVoHx25oscwxvWiEbM=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -80,14 +80,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pZi2XckB0ysOjiG7SG3HRAVaTZyp0mPRIdjCCMgkrD4=
+			L/4DRAjVtp4qZMgJ+rGh++vtvxypXnWsALrqa7Af9Fc=
 			</data>
 		</dict>
 		<key>Modules/shared_preferences_foundation.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			564EbVhT9vAiPjPKRZ9jW48hteae3WXEYkPczMyu8dM=
+			dKVh9lfnCe+R3HAj8IPN1WcPvi9oWQDfizqK7wl+PRA=
 			</data>
 		</dict>
 		<key>Modules/shared_preferences_foundation.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
@@ -108,7 +108,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LCa2sEjBvfAljnjz1z8y8nAZPdteSQi5ufNZW2H3n6A=
+			lqgBBWpSEfzNOwkVtK7xRVLFVXvLpLNKjJ886iErvP8=
 			</data>
 		</dict>
 		<key>Modules/shared_preferences_foundation.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -129,7 +129,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			K7DhXsGy3+CwRnDY1D4uwDZFzmhCrcEUHto+hoKRNxk=
+			RdZdudvcVw08YtIIq+02leOg1uxOqCyNx8mJSV9fxZ8=
 			</data>
 		</dict>
 	</dict>
