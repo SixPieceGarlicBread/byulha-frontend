@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -104,4 +105,91 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
     );
   }
+}
+*/
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+class HomeScreen extends ConsumerStatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  int _currentPage = 0;
+  final PageController _pageController = PageController();
+  final List<String> categories = [
+    'Woody',
+    'Sweet',
+    'Fruity',
+    'Coconut',
+    'Tropical',
+    'Warm Spicy',
+    'Cacao'
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Select Note'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.view_headline),
+            onPressed: () {
+              // View all notes
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            // 카테고리 영역 (수평 스크롤 가능)
+            Container(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: categories.length,
+                itemBuilder: (context, index) {
+                  return _buildCategoryItem(categories[index]);
+                },
+              ),
+            ),
+            // 검색 영역
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.search),
+                  hintText: 'Search',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(),
+                  ),
+                ),
+              ),
+            ),
+            // 여기에 'Hot Sales' 및 'Best Seller' 구현 코드 추가...
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCategoryItem(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Chip(
+        label: Text(title),
+        backgroundColor: Colors.grey[200],
+      ),
+    );
+  }
+
+  // 여기에 'Hot Sales' 및 'Best Seller' 관련 위젯 함수 추가...
 }
