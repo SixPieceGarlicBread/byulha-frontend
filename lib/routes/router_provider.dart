@@ -12,7 +12,7 @@ import 'package:taba/screen/splash/splash_screen.dart';
 import '../screen/main/main_screen.dart';
 
 final Provider<GoRouter> routerProvider = Provider<GoRouter>(
-      (ref) {
+  (ref) {
     return GoRouter(
       initialLocation: RouteInfo.splash.fullPath,
       routes: [
