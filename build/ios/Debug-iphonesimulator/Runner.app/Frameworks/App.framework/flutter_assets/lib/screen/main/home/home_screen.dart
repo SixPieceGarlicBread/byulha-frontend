@@ -110,6 +110,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'filter_rec.dart';
+import 'image_rec.dart';
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -119,20 +122,12 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   final List<String> notes = [
-    'Citrus',
-    'Sweet',
-    'Fruity',
-    'Coconut',
-    'Floral',
-    'Spicy',
-    'Woody',
-    'Musk',
-    'Leather',
-    'Oriental',
-    'Green',
-    'Aquatic',
-    'Aromatic',
-    'Powdery',
+    'amber',
+    'citrus',
+    'floral',
+    'leather',
+    'woody',
+    'chypre',
   ];
 
   @override
@@ -204,13 +199,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.purple,
-          padding:
-              EdgeInsets.symmetric(vertical: 24), // Provide vertical padding
+          primary: Colors.grey[200],
+          padding: EdgeInsets.symmetric(vertical: 24),
         ),
         child: Text(title, style: TextStyle(fontSize: 20)),
         onPressed: () {
-          // 추천 로직 수행
+          if (title == '이미지로 향수추천') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ImageRecScreen()),
+            );
+          } else if (title == '분류별로 향수추천') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FilterRecScreen()),
+            );
+          }
         },
       ),
     );
