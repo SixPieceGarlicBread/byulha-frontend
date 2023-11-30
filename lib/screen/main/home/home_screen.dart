@@ -1,116 +1,7 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeScreen extends ConsumerStatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends ConsumerState<HomeScreen> {
-  int _currentPage = 0;
-  final PageController _pageController = PageController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/logo.png'), // 로고 이미지
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.favorite),
-            onPressed: () {
-              // 즐겨찾기 페이지로 이동
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: <Widget>[
-          // 상단 영역 (로고 및 즐겨찾기)
-          Expanded(
-            flex: 1,
-            child: Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.all(10),
-              child: Image.asset('assets/logo.png'), // 로고 이미지
-            ),
-          ),
-          // 중단 영역 (이미지 슬라이더)
-          Expanded(
-            flex: 2,
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: (int page) {
-                setState(() {
-                  _currentPage = page;
-                });
-              },
-              children: <Widget>[
-                _buildPageItem('lib/screen/main/home/turtle.jpeg'),
-                _buildPageItem('lib/screen/main/home/꼬부기선글라스.jpeg'),
-                _buildPageItem('lib/screen/main/home/꼬부기웃음.jpeg'),
-                // 추가 이미지 페이지
-              ],
-            ),
-          ),
-          // 하단 영역 (버튼)
-          Expanded(
-            flex: 2,
-            child: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 1.0,
-              children: <Widget>[
-                _buildButton('이미지로 향수찾기', Icons.image),
-                _buildButton('분류별로 향수찾기', Icons.category),
-                _buildButton('버튼 3', Icons.star),
-                _buildButton('버튼 4', Icons.star_border),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildButton(String title, IconData icon) {
-    return Card(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(icon, size: 50),
-          Text(title),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPageItem(String imagePath) {
-    return GestureDetector(
-      onTap: () {
-        // 각 이미지를 클릭하면 다른 페이지로 이동
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image: DecorationImage(
-            image: AssetImage(imagePath),
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}
-*/
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'filter_rec.dart';
+import 'filter_rec.dart';
 import 'image_rec.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -199,7 +90,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       width: double.infinity,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.grey[200],
+          backgroundColor: Colors.grey[200],
           padding: EdgeInsets.symmetric(vertical: 24),
         ),
         child: Text(title, style: TextStyle(fontSize: 20)),
@@ -211,8 +102,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             );
           } else if (title == '분류별로 향수추천') {
             Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const FilterRecScreen()),
+            context,
+              MaterialPageRoute(builder: (context) => const FillterRecScreen()),
+
             );
           }
         },
