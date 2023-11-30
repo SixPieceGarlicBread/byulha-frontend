@@ -14,7 +14,7 @@ import '../screen/main/main_screen.dart';
 final Provider<GoRouter> routerProvider = Provider<GoRouter>(
   (ref) {
     return GoRouter(
-      initialLocation: RouteInfo.splash.fullPath,
+      initialLocation: RouteInfo.main.fullPath,
       routes: [
         GoRoute(
           path: RouteInfo.splash.fullPath,
