@@ -1,7 +1,10 @@
+// homescreen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/domain/perfume/perfume.dart';
 import 'package:taba/domain/perfume/perfume_provider.dart';
+import 'package:taba/domain/repository.dart';
+import 'package:taba/screen/main/home/image_rec.dart';
 
 final currentPageProvider = StateProvider<int>((ref) => 0);
 
@@ -18,7 +21,7 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Align(
+        title: const Align(
           alignment: Alignment.centerLeft,
           child: Text('로고'), // 로고 대신에 이미지 위젯을 사용할 수 있음
         ),
@@ -62,11 +65,15 @@ class HomeScreen extends ConsumerWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: 이미지 향수 추천 기능 구현
+                  // image_rec.dart 페이지로 이동
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ImageRecScreen()), // ImageRecPage는 image_rec.dart의 페이지 위젯
+                  );
                 },
                 child: Text('이미지로 향수추천받기'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40), // 버튼 내부 여백 조정
+                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40),
                 ),
               ),
             ),
@@ -75,10 +82,9 @@ class HomeScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Best Seller'), // 로고 대신에 이미지 위젯을 사용할 수 있음
+                child: Text('Best Seller'),
               ),
             ),
-            // 향수 리스트 그리드
             GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -104,7 +110,6 @@ class HomeScreen extends ConsumerWidget {
                 }
               },
             ),
-            // "더보기" 버튼
             if (perfumeList?.value?.hasNext == true)
               ElevatedButton(
                 onPressed: () {

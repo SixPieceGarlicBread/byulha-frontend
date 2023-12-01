@@ -1,7 +1,10 @@
+// homescreen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/domain/perfume/perfume.dart';
 import 'package:taba/domain/perfume/perfume_provider.dart';
+import 'package:taba/domain/repository.dart';
+import 'package:taba/screen/main/home/image_rec.dart';
 
 final currentPageProvider = StateProvider<int>((ref) => 0);
 
@@ -18,7 +21,7 @@ class HomeScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Align(
+        title: const Align(
           alignment: Alignment.centerLeft,
           child: Text('로고'), // 로고 대신에 이미지 위젯을 사용할 수 있음
         ),
@@ -62,11 +65,15 @@ class HomeScreen extends ConsumerWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // TODO: 이미지 향수 추천 기능 구현
+                  // image_rec.dart 페이지로 이동
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ImageRecScreen()), // ImageRecPage는 image_rec.dart의 페이지 위젯
+                  );
                 },
                 child: Text('이미지로 향수추천받기'),
                 style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40), // 버튼 내부 여백 조정
+                  padding: EdgeInsets.symmetric(horizontal: 120, vertical: 40),
                 ),
               ),
             ),
@@ -75,49 +82,42 @@ class HomeScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16.0),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Best Seller'), // 로고 대신에 이미지 위젯을 사용할 수 있음
+                child: Text('Best Seller'),
               ),
             ),
-            // 향수 리스트 그리드
-            Expanded(
-              child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3 / 4,
-                ),
-                itemCount: perfumeList?.value?.content.length ?? 0,
-                itemBuilder: (context, index) {
-                  final perfume = perfumeList?.value?.content[index];
-                  if (perfume != null) {
-                    return Card(
-                      child: Column(
-                        children: [
-                          Text(perfume.name),
-                          Text('Rating: ${perfume.rating.toString()}'),
-                          // 향수 이미지와 기타 속성을 여기에 추가할 수 있습니다.
-                        ],
-                      ),
-                    );
-                  } else {
-                    return SizedBox(); // 데이터가 없는 경우 비어있는 위젯을 반환합니다.
-                  }
-                },
+            GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3 / 4,
               ),
+              itemCount: perfumeList?.value?.content.length ?? 0,
+              itemBuilder: (context, index) {
+                final perfume = perfumeList?.value?.content[index];
+                if (perfume != null) {
+                  return Card(
+                    child: Column(
+                      children: [
+                        Text(perfume.name),
+                        Text('Rating: ${perfume.rating.toString()}'),
+                        // 향수 이미지와 기타 속성을 여기에 추가할 수 있습니다.
+                      ],
+                    ),
+                  );
+                } else {
+                  return SizedBox(); // 데이터가 없는 경우 비어있는 위젯을 반환합니다.
+                }
+              },
             ),
-            // "더보기" 버튼
             if (perfumeList?.value?.hasNext == true)
               ElevatedButton(
                 onPressed: () {
-                  // 현재 페이지 번호를 가져옵니다.
                   int currentPage = ref.read(currentPageProvider);
-                  // 다음 페이지를 불러옵니다.
                   ref.read(perfumeListProvider.notifier).getPerfumeList(currentPage + 1, 10);
                 },
                 child: Text('더보기'),
               )
-
             else
               Padding(
                 padding: EdgeInsets.all(16.0),
