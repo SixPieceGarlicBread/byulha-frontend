@@ -9,7 +9,7 @@ import 'package:taba/screen/main/home/home_screen.dart';
 import 'package:taba/screen/main/profile/profile_screen.dart';
 import 'package:taba/screen/splash/splash_screen.dart';
 
-import '../screen/main/main_screen.dart';
+import '../screen/main/profile/main_screen.dart';
 
 final Provider<GoRouter> routerProvider = Provider<GoRouter>(
   (ref) {
