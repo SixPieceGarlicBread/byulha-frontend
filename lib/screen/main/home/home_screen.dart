@@ -79,45 +79,40 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             // 향수 리스트 그리드
-            Expanded(
-              child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 3 / 4,
-                ),
-                itemCount: perfumeList?.value?.content.length ?? 0,
-                itemBuilder: (context, index) {
-                  final perfume = perfumeList?.value?.content[index];
-                  if (perfume != null) {
-                    return Card(
-                      child: Column(
-                        children: [
-                          Text(perfume.name),
-                          Text('Rating: ${perfume.rating.toString()}'),
-                          // 향수 이미지와 기타 속성을 여기에 추가할 수 있습니다.
-                        ],
-                      ),
-                    );
-                  } else {
-                    return SizedBox(); // 데이터가 없는 경우 비어있는 위젯을 반환합니다.
-                  }
-                },
+            GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3 / 4,
               ),
+              itemCount: perfumeList?.value?.content.length ?? 0,
+              itemBuilder: (context, index) {
+                final perfume = perfumeList?.value?.content[index];
+                if (perfume != null) {
+                  return Card(
+                    child: Column(
+                      children: [
+                        Text(perfume.name),
+                        Text('Rating: ${perfume.rating.toString()}'),
+                        // 향수 이미지와 기타 속성을 여기에 추가할 수 있습니다.
+                      ],
+                    ),
+                  );
+                } else {
+                  return SizedBox(); // 데이터가 없는 경우 비어있는 위젯을 반환합니다.
+                }
+              },
             ),
             // "더보기" 버튼
             if (perfumeList?.value?.hasNext == true)
               ElevatedButton(
                 onPressed: () {
-                  // 현재 페이지 번호를 가져옵니다.
                   int currentPage = ref.read(currentPageProvider);
-                  // 다음 페이지를 불러옵니다.
                   ref.read(perfumeListProvider.notifier).getPerfumeList(currentPage + 1, 10);
                 },
                 child: Text('더보기'),
               )
-
             else
               Padding(
                 padding: EdgeInsets.all(16.0),
