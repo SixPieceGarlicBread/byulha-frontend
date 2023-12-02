@@ -23,9 +23,6 @@ class _ImageRecScreenState extends State<ImageRecScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // 디바이스 화면 높이의 2/3 계산
-    double tutorialHeight = MediaQuery.of(context).size.height * 2 / 3;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('이미지로 향수 추천'),
@@ -36,8 +33,7 @@ class _ImageRecScreenState extends State<ImageRecScreen> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: tutorialHeight, // 튜토리얼 화면의 높이 설정
+          Expanded(
             child: PageView.builder(
               controller: _pageController,
               itemCount: _totalSlides,
