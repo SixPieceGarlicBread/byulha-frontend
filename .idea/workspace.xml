@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b181a404-05e2-4009-80f5-47161bc41bba" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screen/main/profile/search_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/main/profile/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/main/profile/main_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/main/profile/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/main/profile/profile_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +87,8 @@
       <updated>1700789145234</updated>
       <workItem from="1700789146832" duration="465000" />
       <workItem from="1701347997681" duration="14923000" />
+      <workItem from="1701511857891" duration="4824000" />
+      <workItem from="1701604174318" duration="2053000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+//profile_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,7 +15,7 @@ class ProfileScreen extends ConsumerStatefulWidget {
 class _ProfileScreen extends ConsumerState<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return OrbScaffold(
+    return const OrbScaffold(
 
     );
   }

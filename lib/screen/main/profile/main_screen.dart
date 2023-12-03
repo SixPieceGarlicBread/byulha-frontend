@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:taba/screen/main/home/home_screen.dart';
-
-import '../../../modules/orb/components/components.dart';
+import 'package:taba/screen/main/profile/search_screen.dart'; // 검색 화면 import
+import '../../../modules/orb/components/components.dart'; // Orb 스킨 컴포넌트
 
 final pageControllerProvider = StateProvider<PageController>((ref) {
   return PageController(initialPage: 0);
@@ -24,15 +24,16 @@ class MainScreen extends ConsumerWidget {
         onPageChanged: (value) {
           ref.read(_currentIndexProvider.notifier).update((state) => value);
         },
-        children:  [
-          HomeScreen(),
-          // ProfileScreen(),
+        children: [
+          HomeScreen(), // 홈 화면
+          SearchScreen(), // 검색 화면
+          // 다른 화면들도 여기에 추가...
         ],
       ),
       bottomNavigationBar: OrbBottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "홈"),
-          BottomNavigationBarItem(icon: (Icon(Icons.search)), label: "검색"),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: "검색"),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "찜 목록"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "내 정보"),
         ],
