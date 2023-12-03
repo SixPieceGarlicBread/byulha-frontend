@@ -6,7 +6,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  // 선택된 키워드들을 관리하기 위한 상태
+  // 선택된 키워드들을 관리하기 위한 상태 굉장히 중요(이해 잘 못함)
   List<bool> _selectedKeywords = List.generate(10, (index) => false);
 
   @override
