@@ -41,7 +41,7 @@ class _SplashScreen extends ConsumerState<SplashScreen> with TickerProviderState
         opacity: _controller,
         child: Center(
           child: Text(
-            'TABA',
+            '퍼플',
             style: TextStyle(
               fontSize: 50,
               fontWeight: FontWeight.bold,

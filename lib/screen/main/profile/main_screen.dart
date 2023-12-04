@@ -28,10 +28,10 @@ class MainScreen extends ConsumerWidget {
         children: [
           HomeScreen(), // 홈 화면
           SearchScreen(), // 검색 화면
-          FavoriteScreen()
+          FavoriteScreen() // 찜 목록 화면
 
 
-          // 다른 화면들도 여기에 추가...
+          // 다른 화면들도 여기에 추가
         ],
       ),
       bottomNavigationBar: OrbBottomNavigationBar(

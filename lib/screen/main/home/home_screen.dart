@@ -41,7 +41,7 @@ class HomeScreen extends ConsumerWidget {
                   return Container(
                     color: Colors.grey, // 여기에 광고 이미지를 넣을 수 있음
                     child: Center(
-                      child: Text('광고 ${index + 1}'),
+                      child: Text('배너 ${index + 1}'),
                     ),
                   );
                 },
