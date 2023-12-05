@@ -10,7 +10,7 @@ class HomeScreen extends ConsumerWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   final PageController _pageController = PageController();
-  final int _totalAds = 3; // 총 광고 페이지 수
+  final int _totalAds = 2; // 총 광고 페이지 수
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -126,7 +126,7 @@ class HomeScreen extends ConsumerWidget {
                 final currentPage = ref.read(currentPageProvider);
                 ref.read(perfumeListProvider.notifier).getPerfumeList(currentPage + 1, 10);
               },
-              child: const Text('더보기'),
+              child: const Text('더 경험하기'),
             ),
           ),
         ],
