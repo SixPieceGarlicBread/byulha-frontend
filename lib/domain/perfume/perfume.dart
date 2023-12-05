@@ -6,6 +6,7 @@ class Perfume{
   final String company;
   final double rating;
   final String forGender;
+  final String? thumbnailUrl;
 
   Perfume({
     required this.id,
@@ -13,6 +14,7 @@ class Perfume{
     required this.company,
     required this.rating,
     required this.forGender,
+    required this.thumbnailUrl,
   });
 
   factory Perfume.fromJson(Map<String,dynamic> json){
@@ -22,6 +24,7 @@ class Perfume{
       company: json['company'],
       rating: json['rating'],
       forGender: json['forGender'],
+      thumbnailUrl: json['thumbnailUrl'],
     );
   }
 }
